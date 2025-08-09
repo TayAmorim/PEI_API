@@ -1,5 +1,11 @@
 {
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon --exec tsx src/routes/server.ts --watch src"
+  },
   "dependencies": {
+    "@supabase/supabase-js": "^2.54.0",
+    "dotenv": "^17.2.1",
     "fastify": "^5.4.0",
     "fastify-plugin": "^5.0.1"
   },
@@ -7,6 +13,7 @@
     "@types/node": "^24.2.1",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.9.2"
   }
 }
