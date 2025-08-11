@@ -1,7 +1,7 @@
 import { SupabaseClient } from "@supabase/supabase-js"
 
 async function routes (fastify, options) {
-    fastify.get('/', async (request, reply) => {
+    fastify.get('/activities', async (request, reply) => {
       try {
         const supabase = request.server.supabase as SupabaseClient
         const {data, error} = await supabase.from('atividades').select("*")
