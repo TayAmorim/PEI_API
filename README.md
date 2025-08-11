@@ -16,15 +16,15 @@ A Pei é uma solução digital especializada para apoiar o trabalho dos Auxiliar
 - **Gerenciamento de Alunos:** Estrutura para cadastrar e vincular alunos às atividades e aos seus respectivos ADEEs.
 - **Rotas Protegidas:** Endpoints da API protegidos para garantir que apenas usuários autenticados possam acessar e modificar os dados.
 
-## 🛠️ Tecnologias Utilizadas
+### 🛠️ Tecnologias Utilizadas
 
 Este projeto foi construído com as seguintes tecnologias:
 
-- **[NestJS](https://nestjs.com/):** Um framework Node.js progressivo para construir aplicações de servidor eficientes, confiáveis e escaláveis.
-- **[Prisma](https://www.prisma.io/):** ORM de próxima geração para Node.js e TypeScript, utilizado para facilitar a interação com o banco de dados.
+- **[Fastify](https://fastify.dev/):** Um framework web de alta performance e baixo overhead para Node.js, focado em velocidade e uma arquitetura baseada em plugins.
+- **[Supabase](https://supabase.com/):** Uma plataforma de back-end de código aberto, alternativa ao Firebase. Fornece o banco de dados PostgreSQL, sistema de autenticação, e armazenamento de arquivos.
 - **[TypeScript](https://www.typescriptlang.org/):** Um superset do JavaScript que adiciona tipagem estática ao código, aumentando a robustez e a manutenibilidade.
-- **[PostgreSQL](https://www.postgresql.org/):** Um poderoso sistema de banco de dados relacional de código aberto (pode ser substituído por outro banco compatível com o Prisma).
-- **[JWT (JSON Web Tokens)](https://jwt.io/):** Utilizado para criar tokens de acesso que autenticam e autorizam os usuários.
+- **[PostgreSQL](https://www.postgresql.org/):** O robusto e confiável banco de dados relacional que alimenta a plataforma Supabase.
+- **[JWT (JSON Web Tokens)](https://jwt.io/):** Utilizado para criar e validar os tokens de acesso que o sistema de autenticação do Supabase gerencia, garantindo a segurança das rotas da API.
 
 ## 📋 Pré-requisitos
 
