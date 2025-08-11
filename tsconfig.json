@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    // ...
-    "target": "ES2022",         // Use uma versão moderna do ECMAScript
-    "module": "NodeNext",      // Diga ao TypeScript para gerar código ESM moderno para Node
-    "moduleResolution": "NodeNext", // Como o TS deve encontrar os módulos
-    // ...
+    "target": "ES2022",         
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
   }
 }
