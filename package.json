@@ -4,6 +4,7 @@
     "start:dev": "nodemon --exec tsx src/routes/server.ts --watch src"
   },
   "dependencies": {
+    "@fastify/env": "^5.0.2",
     "@supabase/supabase-js": "^2.54.0",
     "dotenv": "^17.2.1",
     "fastify": "^5.4.0",

@@ -4,9 +4,8 @@ async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
       try {
         const supabase = request.server.supabase as SupabaseClient
+        console.log('supabase', supabase)
         const {data, error} = await supabase.from('atividades').select("*")
-
-        console.log('oi', data)
 
         if (error) { throw new Error("Algum erro detectado", error)}
         return { message: 'Conexão com Supabase a ser testada aqui!', data }

@@ -1,9 +1,8 @@
-import dotenv from 'dotenv'
-dotenv.config()
 
 import Fastify from 'fastify'
-import supabasePlugin from '../plugins/supabase'
-import routes from './teste'
+import supabasePlugin from '../plugins/supabase.js'
+import routes from './activies.js'
+
 
 const fastify = Fastify({
   logger: true
