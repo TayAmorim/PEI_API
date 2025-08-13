@@ -1,39 +1,45 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
+import {fastifyEnv} from '@fastify/env'
 import supabasePlugin from '../plugins/supabase.js'
-import routes from './activies.js'
-import authenticate from '../plugins/authenticate.js'
+import activityRoutes from './activies.js'
+// import authenticate from '../plugins/authenticate.js' // Se precisar, descomente
 import rootRoutes from './rootRutes.js'
+import { schema } from '../types/env.types.js'
 
-const fastify = Fastify({
+
+
+const app = Fastify({
   logger: true
 })
 
-await fastify.register(cors, {
-  origin: true,
-})
+app.register(cors, { origin: true })
+app.register(supabasePlugin)
+// app.addHook('onRequest', authenticate) // Descomente para proteger todas as rotas
+app.register(rootRoutes)
+app.register(activityRoutes, { prefix: 'activities' })
 
+await app.register(fastifyEnv, {
+    confKey: 'init', 
+    schema: schema,
+    dotenv: true 
+  });
 
-
-//fastify.addHook('onRequest', authenticate)
-fastify.register(supabasePlugin)
-await fastify.register(rootRoutes)
-await fastify.register(routes)
-
-fastify.listen({ port: 3000, host: '0.0.0.0' }, function (err, address) {
-  if (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }})
-
-const start = async () => {
-  try {
-    const port = 3000
-    await fastify.listen({port, host:'0.0.0.0'})
-  } catch (error) {
-    fastify.log.error(error)
-    process.exit(1)
-  }
+export default async (req, res) => {
+  await app.ready()
+  app.server.emit('request', req, res)
 }
 
-start()
+if (process.env.STAGE === 'dev') {
+  const start = async () => {
+    try {
+      const port = 3000
+      await app.listen({ port: port, host: '0.0.0.0' })
+      console.log(`🚀 Servidor local rodando em http://localhost:${port}`)
+    } catch (err) {
+      app.log.error(err)
+      process.exit(1)
+    }
+  }
+  start()
+}
