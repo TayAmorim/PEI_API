@@ -1,10 +1,12 @@
 import { SupabaseClient } from "@supabase/supabase-js"
+import { FastifyInstance } from "fastify"
 
-async function routes (fastify, options) {
+async function routes (fastify: FastifyInstance) {
     fastify.get('/activities', async (request, reply) => {
       try {
-        const supabase = request.server.supabase as SupabaseClient
-        const {data, error} = await supabase.from('atividades').select("*")
+         const supabase = fastify.supabase as SupabaseClient;
+
+      const { data, error } = await supabase.from('atividades').select("*");
 
         if (error) { throw new Error("Algum erro detectado", error)}
         return { message: 'Listagem retornada com sucesso', data }

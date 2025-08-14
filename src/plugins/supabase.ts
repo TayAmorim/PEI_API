@@ -11,11 +11,10 @@ import { schema } from '../types/env.types.js';
  * 
  */
 
-async function supabasePlugin(fastify: FastifyInstance, options) {
+async function supabasePlugin(fastify: FastifyInstance) {
     await fastify.register(fastifyEnv, {
     confKey: 'config', 
     schema: schema,
-    dotenv: true 
   });
   const supabase = createClient(
     fastify.config.SUPABASE_URL,
