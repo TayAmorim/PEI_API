@@ -4,6 +4,5 @@ export const schema = {
   properties: {
     SUPABASE_URL: { type: 'string' },
     SUPABASE_KEY: { type: 'string' },
-    STAGE: {type: "string"}
   }
 };

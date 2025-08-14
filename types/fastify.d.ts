@@ -6,7 +6,6 @@ declare module 'fastify' {
     config: {
       SUPABASE_URL: string;
       SUPABASE_KEY: string;
-      STAGE: string
     };
 
     supabase: SupabaseClient;
